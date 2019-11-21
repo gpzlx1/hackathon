@@ -16,21 +16,10 @@ nnParameter = [
     }
     ,
     {
-        "name":"conv",
-        "sizeX":3,
-        "sizeY":3,
-        "stride":1,
-        "channel":64
-    }
-    ,
-    {
-        "name":"act",
-        "act_name":"relu"
-    }
-    ,
-    {
-        "name":"dropout",
-        "rate":0.5
+        "name":"pool",
+        "sizeX":2,
+        "sizeY":2,
+        "stride":2
     }
     ,
     {
@@ -48,24 +37,19 @@ nnParameter = [
     ,
     {
         "name":"pool",
-        "sizeX":3,
-        "sizeY":3,
-        "stride":1
+        "sizeX":2,
+        "sizeY":2,
+        "stride":2
     }
     ,
     {
         "name":"dense",
-        "num":120
+        "num":64
     }
     ,
     {
         "name":"act",
         "act_name":"relu"
-    }
-    ,
-    {
-        "name":"dense",
-        "num":40
     }
     ,
     {
@@ -80,5 +64,5 @@ if __name__ == "__main__":
     dataresource = train.DataSource()
     trainApp = train.Train(dataresource)
     cnn = trainApp.train(cnn)
-    #predictApp = predict.Predict()
-    #predictApp.predict(cnn,"./pict/2.png")
+    predictApp = predict.Predict()
+    predictApp.predict(cnn,"./pict/2.png")
