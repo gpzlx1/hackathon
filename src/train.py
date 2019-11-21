@@ -18,6 +18,7 @@ class DataSource(object):
         self.test_images, self.test_labels = test_images, test_labels
 
 #有许多限制
+#dropout 后面没有激活
 #池化层后面不能接激活
 #激活后面不能接激活
 #第一层固定为卷积
@@ -27,19 +28,63 @@ class DataSource(object):
 # 全连接 dense
 # dropout
 # 激活 act
+def get_next(nnParameter, index):
+    length = len(nnParameter)
+    if(index + 1 < length):
+        if(nnParameter[index+1]["name"] == "act"):
+            return True, nnParameter[index+1]["act_name"]
+        else:
+            return False, False
+    else:
+        return False, False
+
 class CNN(object):
-    def __init__(self):
+    def __init__(self, nnParameter):
         model = models.Sequential()
+        #先不搞错误处理
+        length = len(nnParameter)
+        i = 0
+        while i < length:
+            layer = nnParameter[i]
+            if i == 0 and layer["name"] == "conv": #第一层特殊
+                status, act_name = get_next(nnParameter, i)
+                if status:
+                    model.add(layers.Conv2D(layer["channel"], \
+                    (layer["sizeX"], layer["sizeY"]), strides=layer["stride"], activation=act_name, input_shape=(28, 28, 1)))
+                    i = i + 1
+                else:
+                    model.add(layers.Conv2D(layer["channel"], \
+                    (layer["sizeX"], layer["sizeY"]), strides=layer["stride"], input_shape=(28, 28, 1)))
+            
+            elif i != length - 1:#不是最后一层
 
-        model.add(layers.Conv2D(32, (3, 2), activation='relu', input_shape=(28, 28, 1)))
-        model.add(layers.MaxPooling2D((2, 2)))
-        model.add(layers.Conv2D(64, (3, 3), activation='relu'))
-        model.add(layers.MaxPooling2D((2, 2)))
-        model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+                if layer["name"] == "conv":
+                    status, act_name = get_next(nnParameter, i)
+                    if status:
+                        model.add(layers.Conv2D(layer["channel"], \
+                        (layer["sizeX"], layer["sizeY"]), strides=layer["stride"], activation=act_name))
+                        i = i + 1
+                    else:
+                        model.add(layers.Conv2D(layer["channel"], \
+                        (layer["sizeX"], layer["sizeY"]), strides=layer["stride"]))
 
-        model.add(layers.Flatten())
-        model.add(layers.Dense(64, activation='relu'))
-        model.add(layers.Dense(10, activation='softmax'))
+                elif layer["name"] == "dropout":
+                    model.add(layers.Dropout(layer["rate"]))
+
+                elif layer["name"] == "dense":
+                    status, act_name = get_next(nnParameter, i)
+                    if status:
+                        model.add(layers.Dense(layer["num"], activation=act_name))
+                        i = i + 1
+                    else:
+                        model.add(layer.dense(layer["num"]))
+                elif layer["name"] == "pool":
+                    model.add(layers.MaxPooling2D((layer["sizeX"], layer["sizeY"]), strides=layer["stride"]))
+            
+            else: #最后一层
+                model.add(layers.Dense(10, activation='softmax'))  
+
+            i = i + 1    
 
         model.summary()
 
