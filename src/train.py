@@ -72,12 +72,13 @@ class CNN(object):
                     model.add(layers.Dropout(layer["rate"]))
 
                 elif layer["name"] == "dense":
+                    model.add(layers.Flatten())
                     status, act_name = get_next(nnParameter, i)
                     if status:
                         model.add(layers.Dense(layer["num"], activation=act_name))
                         i = i + 1
                     else:
-                        model.add(layer.dense(layer["num"]))
+                        model.add(layers.Dense(layer["num"]))
                 elif layer["name"] == "pool":
                     model.add(layers.MaxPooling2D((layer["sizeX"], layer["sizeY"]), strides=layer["stride"]))
             

@@ -65,6 +65,11 @@ nnParameter = [
     ,
     {
         "name":"dense",
+        "num":40
+    }
+    ,
+    {
+        "name":"dense",
         "num":10
     }
 ]
