@@ -97,10 +97,13 @@ class Train:
         self.data = DataSource
 
     def train(self, cnn):
+        tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./log", histogram_freq=1)
         cnn.model.compile(optimizer='adam',
                                loss='sparse_categorical_crossentropy',
                                metrics=['accuracy'])
-        cnn.model.fit(self.data.train_images, self.data.train_labels, verbose=1 ,epochs=1)
+        cnn.model.fit(self.data.train_images, self.data.train_labels,  verbose=1 ,epochs=4,\
+                     validation_data=(self.data.test_images, self.data.test_labels), \
+                        callbacks=[tensorboard_callback] )
         return cnn
 
 if __name__ == "__main__":
