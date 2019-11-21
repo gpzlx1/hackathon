@@ -1,0 +1,10 @@
+.vscode
+.vscode/*
+log
+log/*
+venv
+venv/*
+pict/*
+pict
+model/*
+model
