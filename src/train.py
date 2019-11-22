@@ -76,7 +76,6 @@ class CNN(object):
                     continue
  
                 elif layer["name"] == "dense":
-                    model.add(layers.Flatten())
                     status, act_name = get_next(nnParameter, i)
                     if status:
                         model.add(layers.Dense(layer["num"], activation=act_name))
