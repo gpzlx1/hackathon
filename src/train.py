@@ -106,14 +106,9 @@ class Train:
         cnn.model.compile(optimizer=sgd,
                                loss='sparse_categorical_crossentropy',
                                metrics=['accuracy'])
-        cnn.model.fit(self.data.train_images, self.data.train_labels,  verbose=1 ,epochs=1, batch_size=100,\
+        cnn.model.fit(self.data.train_images, self.data.train_labels,  verbose=1 ,epochs=10, batch_size=100,\
                      validation_data=(self.data.test_images, self.data.test_labels), workers=4, \
                         callbacks=[tensorboard_callback] )
         cnn.model.save("./model/mnist.h5")
         return cnn
 
-if __name__ == "__main__":
-    cnn = CNN()
-    dataresource = DataSource()
-    app = Train(dataresource)
-    app.train(cnn)
