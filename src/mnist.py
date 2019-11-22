@@ -69,4 +69,4 @@ if __name__ == "__main__":
     trainApp = train.Train(dataresource)
     cnn = trainApp.train(cnn)
     predictApp = predict.Predict()
-    predictApp.predict(cnn,"./pict/pict.png")
+    predictApp.predict_with_load("./pict/pict.png")

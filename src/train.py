@@ -102,13 +102,13 @@ class Train:
     def train(self, cnn):
         sgd =  tf.keras.optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
         tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir="./log", histogram_freq=1)
-        savemode_callback = cnn.save("./model/mnist")
         cnn.model.compile(optimizer=sgd,
                                loss='sparse_categorical_crossentropy',
                                metrics=['accuracy'])
         cnn.model.fit(self.data.train_images, self.data.train_labels,  verbose=1 ,epochs=1, batch_size=100,\
                      validation_data=(self.data.test_images, self.data.test_labels), workers=4, \
-                        callbacks=[tensorboard_callback, savemode_callback] )
+                        callbacks=[tensorboard_callback] )
+        cnn.model.save("./model/mnist.h5")
         return cnn
 
 if __name__ == "__main__":
