@@ -6,8 +6,8 @@ nnParameter = [
         "name":"conv",
         "sizeX":3,
         "sizeY":3,
-        "strideX":2,
-        "strideY":2,
+        "strideX":1,
+        "strideY":1,
         "channel":32
     }
     ,
@@ -28,8 +28,8 @@ nnParameter = [
         "name":"conv",
         "sizeX":3,
         "sizeY":3,
-        "strideX":2,
-        "strideY":2,
+        "strideX":3,
+        "strideY":3,
         "channel":64
     }
     ,
@@ -42,8 +42,8 @@ nnParameter = [
         "name":"pool",
         "sizeX":2,
         "sizeY":2,
-        "strideX":2,
-        "strideY":2,
+        "strideX":1,
+        "strideY":1,
     }
     ,
     {

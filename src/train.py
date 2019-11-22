@@ -86,6 +86,7 @@ class CNN(object):
                     model.add(layers.MaxPooling2D((layer["sizeX"], layer["sizeY"]), strides=(layer["strideX"],layer["strideY"])))
             
             else: #最后一层
+                model.add(layers.Flatten())
                 model.add(layers.Dense(10, activation='softmax'))  
 
             i = i + 1    
