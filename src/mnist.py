@@ -6,7 +6,8 @@ nnParameter = [
         "name":"conv",
         "sizeX":3,
         "sizeY":3,
-        "stride":1,
+        "strideX":2,
+        "strideY":2,
         "channel":32
     }
     ,
@@ -19,14 +20,16 @@ nnParameter = [
         "name":"pool",
         "sizeX":2,
         "sizeY":2,
-        "stride":2
+        "strideX":2,
+        "strideY":2,
     }
     ,
     {
         "name":"conv",
         "sizeX":3,
         "sizeY":3,
-        "stride":1,
+        "strideX":2,
+        "strideY":2,
         "channel":64
     }
     ,
@@ -39,7 +42,8 @@ nnParameter = [
         "name":"pool",
         "sizeX":2,
         "sizeY":2,
-        "stride":2
+        "strideX":2,
+        "strideY":2,
     }
     ,
     {
@@ -65,4 +69,4 @@ if __name__ == "__main__":
     trainApp = train.Train(dataresource)
     cnn = trainApp.train(cnn)
     predictApp = predict.Predict()
-    predictApp.predict(cnn,"./pict/2.png")
+    predictApp.predict(cnn,"./pict/pict.png")

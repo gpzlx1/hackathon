@@ -23,7 +23,8 @@ class Predict(object):
         img = Image.open(image_path).convert('L')
         img = img.resize((28,28))
         flatten_img = np.reshape(img, (28, 28, 1))
-        x = np.array([1 - flatten_img],dtype=float)
+        x = np.array([1 - flatten_img], dtype=float)
+        x = x /255.0
         # API refer: https://keras.io/models/model/
         y = cnn.model.predict(x)
 
@@ -31,6 +32,7 @@ class Predict(object):
         # np.argmax()取得最大值的下标，即代表的数字
         print(image_path)
         print(y[0])
+        print(sum(y[0]))
         print('        -> Predict digit', np.argmax(y[0]))
 
 
