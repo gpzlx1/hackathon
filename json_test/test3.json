@@ -1,0 +1,134 @@
+{
+  "operators": {
+    "0": {
+      "properties": {
+        "title": "Start Node0",
+        "information": {
+          "InputDim": 784
+        },
+        "inputs": {},
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 640,
+      "top": 960
+    },
+    "1": {
+      "properties": {
+        "title": "End Node0",
+        "information": {
+          "OutputDim": 10
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {}
+      },
+      "left": 1000,
+      "top": 980
+    },
+    "2": {
+      "properties": {
+        "title": "Fully-connected0",
+        "information": {
+          "num": 64
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 740,
+      "top": 1080
+    },
+    "3": {
+      "properties": {
+        "title": "Fully-connected1",
+        "information": {
+          "num": 64
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 1040,
+      "top": 1100
+    },
+    "4": {
+      "properties": {
+        "title": "Pooling0",
+        "information": {
+          "sizeX": 3,
+          "sizeY": 3,
+          "strideX": 3,
+          "strideY": 3
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 840,
+      "top": 960
+    }
+  },
+  "links": {
+    "0": {
+      "fromOperator": 2,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 2,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    },
+    "1": {
+      "fromOperator": 3,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 3,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    },
+    "2": {
+      "fromOperator": 0,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 4,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    },
+    "3": {
+      "fromOperator": 4,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 1,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    }
+  },
+  "operatorTypes": {}
+}

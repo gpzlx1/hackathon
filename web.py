@@ -13,7 +13,7 @@ from io import BytesIO
 from flask import Flask, session, redirect, url_for, escape, request, render_template, jsonify, make_response, json
 from flask import send_file, flash
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__, static_folder='static', template_folder='static', static_url_path='')
 dataresource = ta.DataSource()
 
 @app.route("/download/<filename>", methods=["GET"])

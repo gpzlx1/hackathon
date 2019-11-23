@@ -1,0 +1,198 @@
+{
+  "operators": {
+    "0": {
+      "properties": {
+        "title": "Start Node0",
+        "information": {
+          "InputDim": 784
+        },
+        "inputs": {},
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 600,
+      "top": 1000
+    },
+    "1": {
+      "properties": {
+        "title": "Convolution0",
+        "information": {
+          "sizeX": 3,
+          "sizeY": 3,
+          "strideX": 1,
+          "strideY": 1,
+          "channel": 32
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 840,
+      "top": 1000
+    },
+    "2": {
+      "properties": {
+        "title": "Convolution1",
+        "information": {
+          "sizeX": 3,
+          "sizeY": 3,
+          "strideX": 1,
+          "strideY": 1,
+          "channel": 32
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 1060,
+      "top": 1000
+    },
+    "3": {
+      "properties": {
+        "title": "Activation0",
+        "information": {
+          "ActivationFunc": "Relu"
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 1280,
+      "top": 1000
+    },
+    "4": {
+      "properties": {
+        "title": "Activation1",
+        "information": {
+          "ActivationFunc": "Relu"
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 620,
+      "top": 1140
+    },
+    "5": {
+      "properties": {
+        "title": "Pooling0",
+        "information": {
+          "sizeX": 3,
+          "sizeY": 3,
+          "strideX": 3,
+          "strideY": 3
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {
+          "output_0": {
+            "label": "Output 1"
+          }
+        }
+      },
+      "left": 880,
+      "top": 1140
+    },
+    "6": {
+      "properties": {
+        "title": "End Node0",
+        "information": {
+          "OutputDim": 10
+        },
+        "inputs": {
+          "input_0": {
+            "label": "Input 1"
+          }
+        },
+        "outputs": {}
+      },
+      "left": 1140,
+      "top": 1140
+    }
+  },
+  "links": {
+    "0": {
+      "fromOperator": 0,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 1,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    },
+    "1": {
+      "fromOperator": 1,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 2,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    },
+    "2": {
+      "fromOperator": 2,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 3,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    },
+    "3": {
+      "fromOperator": 3,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 4,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    },
+    "4": {
+      "fromOperator": 4,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 5,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    },
+    "5": {
+      "fromOperator": 5,
+      "fromConnector": "output_0",
+      "fromSubConnector": 0,
+      "toOperator": 6,
+      "toConnector": "input_0",
+      "toSubConnector": 0
+    }
+  },
+  "operatorTypes": {}
+}
