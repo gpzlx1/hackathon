@@ -43,7 +43,7 @@ $(function () {
             onOperatorDelete: function (operatorId) {
                 return true;
             },
-            onLinkDelete: function (linkId, forced) {s
+            onLinkDelete: function (linkId, forced) {
                 return true;
             },
             onOperatorMoved: function (operatorId, position) {
@@ -472,6 +472,36 @@ $(function () {
             $operator.addClass(infos.class);
 
             var $operator_title = $('<div class="flowchart-operator-title"></div>');
+            var Title = operatorData.properties.title;
+            if (Title.substring(0, 10) == 'Start Node') {
+                $operator_title.css("background-color","#007BFF");
+                $operator_title.css("color","#FFFFFF");
+            }
+            else if (Title.substring(0, 8) == 'End Node') {
+                $operator_title.css("background-color","#007BFF");
+                $operator_title.css("color","#FFFFFF");
+            }
+            else if (Title.substring(0, 10) == 'Activation') {
+                $operator_title.css("background-color","#28A745");
+                $operator_title.css("color","#FFFFFF");
+            }
+            else if (Title.substring(0, 15) == 'Fully-connected') {
+                $operator_title.css("background-color","#FFC107");
+                $operator_title.css("color","#FFFFFF");
+            }
+            else if (Title.substring(0, 7) == 'Dropout') {
+                $operator_title.css("background-color","#6C757D");
+                $operator_title.css("color","#FFFFFF");
+            }
+            else if (Title.substring(0, 7) == 'Pooling') {
+                $operator_title.css("background-color","#DC3545");
+                $operator_title.css("color","#FFFFFF");
+            }
+            else if (Title.substring(0, 11) == 'Convolution') {
+                $operator_title.css("background-color","#17A2B8");
+                $operator_title.css("color","#FFFFFF");
+            }
+
             $operator_title.html(infos.title);
             $operator_title.appendTo($operator);
 

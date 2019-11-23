@@ -1,270 +1,352 @@
-<head>
-    <title>AI Sketch</title>
-    <script src="js/jquery-bs/jquery-3.4.1.min.js"></script>
-    <script src="js/jquery-bs/popper.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-bs/bootstrap.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- tensorflow.js -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script> -->
-    <!-- drawBoard -->
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="drawingboard/css/style.css">
-    <link rel="stylesheet" href="css/prediction.css">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>AI Sketch -- A brand new DeepLearning tutorial platform</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./index/index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="./index/index/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./index/index/vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="./index/index/device-mockups/device-mockups.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="./index/index/css/new-age.css" rel="stylesheet">
+
 </head>
 
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div> -->
+<body id="page-top">
 
-            <!-- navigation bar -->
-            <div class="col-md-12">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">AI Sketch</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#download">About This Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#features">Tutorials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#tryit">Try It</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Disabled</a>
-                            </li>
-                        </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
-                </nav>
-            </div>
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-9 my-auto">
+          <div class="header-content mx-auto">
+            <h1 class="mb-5">
+              AI Sketch is an user-friendly tutorial platform for the DeepLearning beginners.
+            </h1>
+            <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Next</a>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <iframe frameborder="0" scrolling="no" onload="resizeIframe(this)" width='100%'
-                    src="flowgraph/index.html"></iframe>
-                <!-- <div class="embed-responsive embed-responsive-13by9">
-                    <iframe class="embed-responsive-item" scrolling="no" src="flowgraph/index.html" allowfullscreen></iframe>
-                </div> -->
-            </div>
-            <!-- <div class="col-md-3">.col-md-4</div> -->
+        <div class="col-lg-3 my-auto">
+          <img src="img/1.svg" class="img-fluid" alt="">
         </div>
-        <div class="row row-align" style="margin-top:30px;">
-            <div class="col-md-1">
-                <img id="star" src="assets/icon/star.svg">
-            </div>
-            <div class="col-md-11">
-                <div id="prompt">
-                    Drawing your number below
-                </div>
-            </div>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="download bg-primary text-center" style="color:#FFFFFF" id="download">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 mx-auto">
+          <h2 class="section-heading">About This Project</h2>
+          <br>
+          <br>
+          <p>
+            This project is 
+          </p>
+          <p>
+            Our app is available on any mobile device! Download now to get started!
+            Our app is available on any mobile device! Download now to get started!
+            Our app is available on any mobile device! Download now to get started!
+            Our app is available on any mobile device! Download now to get started!
+            Our app is available on any mobile device! Download now to get started!
+            Our app is available on any mobile device! Download now to get started!
+          </p>
+          <p>Our app is available on any mobile device! Download now to get started!</p>
+          <p>Our app is available on any mobile device! Download now to get started!</p>
+
+
+          <br>
+          <br>
+          <br>
+          <br>
+          <h3>Authors:</h3>
+          <div class="badges">
+            <a class="badge-link" style="margin-right: 50px" href="https://gpzlx1.github.io/gpzlx1-markdown-cv/"><img
+                src="img/gp.jpg" alt=""></a>
+            <a class="badge-link" style="margin-right: 50px" href="http://home.ustc.edu.cn/~zes18119713525/"><img
+                src="img/zes.jpeg" alt=""></a>
+            <a class="badge-link" href="https://github.com/SkilfulBugsMaker"><img src="img/gyx.jpg" alt=""></a>
+          </div>
+          <br>
         </div>
-        <div class="row row-align" style="margin-top:10px;">
-            <div class="col-md-5">
-                <!-- drawing board -->
-                <div class="container-fluid" style="border:solid #f7f7f9; border-radius:1rem;">
-
-                    <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay=' 2000'>
-            <div class="toast-header">
-                <img src="..." class="rounded mr-2" alt="...">
-                <strong class="mr-auto">USTC</strong>
-                <small>11 mins ago</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                Upload Successfully!
-            </div>
-        </div> -->
-
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="color-group">
-                                <ul>
-                                    <li id="white" class="color-item" style="background-color: white;"></li>
-                                    <li id="black" class="color-item active" style="background-color: black;"></li>
-                                    <li id="red" class="color-item" style="background-color: #FF3333;"></li>
-                                    <li id="blue" class="color-item" style="background-color: #0066FF;"></li>
-                                    <li id="yellow" class="color-item" style="background-color: #FFFF33;"></li>
-                                    <li id="green" class="color-item" style="background-color: #33CC66;"></li>
-                                    <li id="gray" class="color-item" style="background-color: gray;"></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-10 " id='div-drawing-board'>
-                            <canvas id="drawing-board"></canvas>
-                        </div>
-                        <div class="col-md-1">
-
-                            <div id="range-wrap">
-                                <input type="range" id="range" min="1" max="30" value="5" title="调整笔刷粗细">
-                            </div>
+      </div>
+    </div>
+  </section>
 
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="tools">
-                                <button id="brush" class="active" title="画笔">
-                                    <i class="iconfont icon-qianbi"></i></button>
-                                <button id="eraser" title="橡皮擦"><i class="iconfont icon-xiangpi"></i></button>
-                                <button id="clear" title="清空"><i class="iconfont icon-qingchu"></i></button>
-                                <button id="undo" title="撤销"><i class="iconfont icon-chexiao"></i></button>
-                                <button id="save" title="保存"><i class="iconfont icon-fuzhi"></i></button>
-                                <button id="run" title="运行"><img class='icon'
-                                        src="drawingboard/assets/run.svg"></img></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Tutorial</h2>
+        <hr>
+      </div>
 
+      <div class="col-md-9 mx-auto">
+        <p>
+          You must have heard what is called Convolutional Neural Networks.
+          But what is Convolutional Neural Networks? How do they work?
+          Are they hard enough to hand on? Our simple app will answer these question,
+          where you even have a chance to design your own Convolutional Neural Networks,
+          understand the each component of CNN and verify your masterpiece.
+        </p>
+      </div>
 
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
-            </div>
-            <div class="col-md-3">
-                <!--number probility board -->
-                <div class="container-fluid">
-                    <div class="row probility-item">
-                        <div class="col-md-2">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <img class="question-mark" src='assets/icon/question-mark.svg'>
-
-                            <img class="icon-number" src="assets/icon/0.svg">
-
-                        </div>
-                        <div class="col-md-10">
-                            <div></div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info " role="progressbar" style="width: 0%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row probility-item">
-                        <div class="col-md-2">
-                            <div class="spinner-border text-secondary" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <img class="question-mark" src='assets/icon/question-mark.svg'>
-                            <img class="icon-number" src="assets/icon/0.svg">
-                        </div>
-                        <div class="col-md-10">
-                            <div class="progress">
-                                <div class="progress-bar bg-info " role="progressbar" style="width: 0%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row probility-item">
-                        <div class="col-md-2">
-                            <div class="spinner-border text-success" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <img class="question-mark" src='assets/icon/question-mark.svg'>
-                            <img class="icon-number" src="assets/icon/0.svg">
-                        </div>
-                        <div class="col-md-10">
-                            <div class="progress">
-                                <div class="progress-bar bg-info " role="progressbar" style="width: 0%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row probility-item">
-                        <div class="col-md-2">
-                            <div class="spinner-border text-danger" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <img class="question-mark" src='assets/icon/question-mark.svg'>
-                            <img class="icon-number" src="assets/icon/0.svg">
-                        </div>
-                        <div class="col-md-10">
-                            <div class="progress">
-                                <div class="progress-bar bg-info " role="progressbar" style="width: 0%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row probility-item">
-                        <div class="col-md-2">
-                            <div class="spinner-border text-warning" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <img class="question-mark" src='assets/icon/question-mark.svg'>
-                            <img class="icon-number" src="assets/icon/0.svg">
-                        </div>
-                        <div class="col-md-10">
-                            <div class="progress">
-                                <div class="progress-bar bg-info " role="progressbar" style="width: 0%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row probility-item">
-                        <div class="col-md-2">
-                            <div class="spinner-border text-info" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <img class="question-mark" src='assets/icon/question-mark.svg'>
-                            <img class="icon-number" src="assets/icon/0.svg">
-                        </div>
-                        <div class="col-md-10">
-                            <div class="progress">
-                                <div class="progress-bar bg-info " role="progressbar" style="width: 0%"
-                                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <img width='100%' class="rounded" src="assets/demo.png">
-            </div>
+      <div class="row">
+        <div class="col-lg-8 my-auto">
+          <h3>What is Convolutional Neural Networks?</h3>
+          <br>
+          <br>
+          <p>
+            A convolution neural network (CNN) is a type of artifical neural network used in image recognition area and
+            so on. As we know, it is very simple for human or animinals to detect and identify objects. But what should
+            the computer do to identify a number 8? Even if 8 is in the case of a two-digit number array, we still can
+            abstract it out. To solve this proble, smart scientists have proposed and implemented an effective way for
+            computer implementations to perform pattern recognition, which is known convolution neural network.
+          </p>
         </div>
-        <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6"></div>
+
+        <div class="col-lg-4 my-auto">
+          <img src="img/8.gif" alt="" width="275px" height="275px">
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-lg-7 my-auto">
+          <img src="img/7.jpeg" alt="" width="600" height="300">
+          <p class="text-muted text-center">A complete Convolutional Neural Network</p>
+        </div>
+
+        <div class="col-lg-5 my-auto">
+          <p>
+            This picture shows how CNN recognizes a car. The structure of CNN may look very complicated, but in
+            reality
+            only four operators are combined to form this CNN. We will introduce these four components in order.
+          </p>
+        </div>
+
+      </div>
+      <br>
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-lg-8 my-auto">
+          <h3>Convolution Layer</h3>
+          <br>
+          <br>
+          <p>
+            The first operation is a convolution operation. In short, its function is to scan pictures (in fact, it is
+            Matrix element-multiplication) and extract features. Like this gif, the convolution kernel constantly scans
+            some or all of the images, constantly proposing features. The convolution layer has two parameters, one is
+            size, which determines the size of the scan area; the other is the stride, which determines the distance
+            between adjacent scan areas.
+          </p>
+        </div>
+        <div class="col-lg-4 my-auto">
+          <img src="img/6.gif" alt="" width="320px" height="360px">
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      
+      <div class="text-center">
+        <h3 class="text-center">Pooling Layer</h3>
+        <br>
+        <br>
+        <img src="img/8.png" alt="">
+        <br>
+        <br>
+        <p class="text-center">
+          The role of the pooling layer is to magnify the features.
+          Its behavior pattern is consistent with the convolutional layer. <br>
+          There are also two parameters, size and stride. 
+          However, it does not multiply but takes
+          the maximum operation. <br>
+          In this way, CNN can respond more strongly to some
+          certain features.
+        </p>
+      </div>
+      <br>
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-lg-7 my-auto">
+          <h3>Activation Layer</h3>
+          <br>
+          <br>
+          <p>
+            The activation layer determines whether the network responds to features. CNN is able to extract a lot of
+            features, but only a few features can make a big difference to our recognition. 
+            Just like looking for a
+            zebra at the zoo, the main feature is the coat color. The function of acitvation layer is filtering out
+            useful features. There is no paramter but the method to activate.
+          </p>
+
+        </div>
+        <div class="col-lg-5 my-auto">
+          <img src="img/out.png" alt="" width="450px" height="325px">
+          <p class="text-center text-muted">Different Activation Function</p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-lg-5 my-auto">
+          <img src="img/5.png" alt="" width="370px" height="425px">
+
+        </div>
+        <div class="col-lg-7 my-auto">
+          <h3>Fully-Connected Layer</h3>
+          <br>
+          <br>
+          <p>
+            The fully connected layer can aggregate features and aggregate all the features together to identify what
+            the object is. Just like humans, CNN extracts all features through the fully connected layer and identifies
+            the target based on the combination of features. Its parameter is the number of features extracted
+          </p>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <div class="text-center">
+          <div class="text-center">
+            <h3>Written in the end</h3>
+            <br>
+            <br>
+            <p class="text-left">
+              After reading the tutorial, I believe you may have a simple impression of CNN.
+              Now, our Project provides a great chance for you to get a further comprehension on construct a Neural Network.
+              You can build a so complicated Network in a few moments, just via clicking and dragging. Sounds interesting? Let's have a try!
+
+            </p>
+          </div>
         </div>
     </div>
-    <!-- drawBoard -->
-    <script src='js/prediction.js'></script>
-    <script src="drawingboard/js/drawboard.js"></script>
-    <!-- init -->
-    <script src="app.js"></script>
+  </section>
+
+  <section class="cta" id="tryit">
+    <div class="cta-content">
+      <div class="container">
+        <h2>Draw Your Network !</h2>
+        <a href="index2.html" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; AI Sketch 2019. All Rights Reserved.</p>
+      <p>
+        Reference:
+        <a style="margin-right: 8px; margin-left: 3px;" href="https://github.com/zhoushuozh/drawingborad">
+          Drawingboard
+        </a>
+        <a class="badge-link" href="https://www.tensorflow.org" style="margin-right: 8px"> Tensorflow</a>
+        <a class="badge-link" href="https://github.com/BlackrockDigital/startbootstrap-new-age" style="margin-right: 8px"> New Age</a>
+        
+        <a class="badge-link" href="https://github.com/sdrdis/jquery.flowchart">Flowchart</a>
+      </p>
+      <p>
+        Organization:
+        <a class="badge-link" style="margin-right: 8px;margin-left: 3px;"
+          href="https://hackathon2019eastchina.github.io/">
+          hackathon2019@eastChina
+        </a>
+        <a class="badge-link" href="http://www.ustc.edu.cn" style="margin-right: 8px"> USTC</a>
+        <a href="https://www.seu.edu.cn/">SEU</a>
+
+      </p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#">Privacy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">Terms</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">FAQ</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="./index/index/vendor/jquery/jquery.min.js"></script>
+  <script src="./index/index/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="./index/index/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="./index/index/js/new-age.min.js"></script>
+
 </body>
+
+</html>

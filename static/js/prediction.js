@@ -17,6 +17,7 @@ function predict(data) {
         bars[i].innerHTML = results[i].possibility;
         icon_number[i].src = icon_number_path + results[i].number + '.svg';
     }
+    $('#toast-predict').toast('show');
     icon_number.show();
 }
 

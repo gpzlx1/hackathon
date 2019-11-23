@@ -339,10 +339,12 @@ $(document).ready(function () {
 
   $('.get_data').click(function () {
     //hide and show
-    $('#info-board').children().hide();
+    $('#argument').children().hide();
     $('#spinner-grow').show();
+    $('#goto-tonsor').text('Waiting for training');
+    $('#goto-tonsor').attr('disabled', true);
 
-    var url_upload_json = 'http://127.0.0.1:5000/train';
+    var url_upload_json = 'http://137.116.74.209/train';
     var data = $flowchart.flowchart('getData');
     console.log(data);
     data = JSON.stringify(data, null, 2);
@@ -352,17 +354,22 @@ $(document).ready(function () {
         data,
         function (response_data) {
           // $('.toast').toast('show');
-          $('#spinner-grow').show();
+          $('#spinner-grow').hide();
           // console.log(response_data);
-          if (response_data.status == 'true') {
-            $('#toast-success .toast-body').text(response_data.msg);
-            $('#toast-success').show();
-            console.log('success');
+          if (response_data.status == true) {
+            $('#goto-tonsor').text('Show result');
+            $('#goto-tonsor').attr('disabled', false);
+
+            // console.log($.prototype.jquery);
+            $('#toast-train').toast('show');
+            // console.log('success');
           }
           else {
-            console.log('failed');
-            $('#toast-fail').show();
-            $('#toast-fail').toast(response_data.msg);
+            $('#goto-tonsor').text('Failed in Creating NN');
+            $('#goto-tonsor').attr('disabled', true);
+            $('#toast-fail .toast-body').text(response_data.msg);
+            $('#toast-fail').toast('show');
+            console.log('failed1');
           }
         },
         'json'

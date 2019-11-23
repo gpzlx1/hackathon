@@ -188,7 +188,7 @@ undo.onclick = function () {
 
 
 run.onclick = function () {
-    var url_upload_img = 'http://127.0.0.1:5000/predict';
+    var url_upload_img = 'http://137.116.74.209/predict';
     var img_data = canvas.toDataURL('image/png', 1);  //1表示质量(无损压缩)
     console.log(img_data);
 
@@ -209,7 +209,7 @@ run.onclick = function () {
         url_upload_img,
         { img_base64: img_data },
         function (data) {
-            $('.toast').toast('show');
+            // $('.toast').toast('show');
             predict(data);
             //$('.spinner-border').show();
         },

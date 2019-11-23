@@ -12,7 +12,12 @@
   <link rel="stylesheet" type="text/css" href="./lib/print.css" media="print">
 
   <script src='lib/jquery-3.4.1.min.js'></script>
+  <script src="lib/popper.min.js"></script>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/bootstrap.min.js"></script>
+
   <script> var jq3 = jQuery.noConflict(true); </script>
+
   <script src="./lib/jquery-1.10.2.js"></script>
   <script src="./lib/jquery-ui.js"></script>
 
@@ -25,9 +30,9 @@
   <link rel="stylesheet" href="./lib/custom.css">
 
   <!-- <script src='lib/jquery-3.4.1.min.js'></script> -->
-  <script src="lib/popper.min.js"></script>
+  <!-- <script src="lib/popper.min.js"></script>
   <link rel="stylesheet" href="lib/bootstrap.min.css">
-  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script> -->
 
   <title>test</title>
 </head>
@@ -65,11 +70,10 @@
                 </div>
 
                 <div class="draggable_operators_divs">
-                  <div id='End Node' class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary"
-                    data-nb-inputs="1" data-nb-outputs="0">End Node</div>
                   <div id='Start Node' class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary"
                     data-nb-inputs="0" data-nb-outputs="1">
                     Start Node</div>
+
                   <div id='Pooling' class="draggable_operator ui-draggable ui-draggable-handle btn btn-danger"
                     data-nb-inputs="1" data-nb-outputs="1">
                     Pooling</div>
@@ -77,7 +81,7 @@
                     data-nb-inputs="1" data-nb-outputs="1">
                     Convolution</div>
                   <div id='Fully-connected' class="draggable_operator ui-draggable ui-draggable-handle btn btn-warning"
-                    data-nb-inputs="1" data-nb-outputs="1">
+                    data-nb-inputs="1" style="color:white" data-nb-outputs="1">
                     Fully-connected</div>
                   <div id='Dropout' class="draggable_operator ui-draggable ui-draggable-handle btn btn-secondary"
                     data-nb-inputs="1" data-nb-outputs="1">
@@ -85,6 +89,9 @@
                   <div id='Activation' class="draggable_operator ui-draggable ui-draggable-handle btn btn-success"
                     data-nb-inputs="1" data-nb-outputs="1">
                     Activation</div>
+                  <div id='End Node' class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary"
+                    data-nb-inputs="1" data-nb-outputs="0">End Node</div>
+
                 </div>
               </div>
               <button class="delete_selected_button btn btn-dark">Delete selected operator / link</button>
@@ -126,181 +133,181 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 text-center" id='info-board'>
+      <div class="col-md-3 " id='info-board'>
 
-        <!-- waiting for training -->
-        <div class="spinner-grow text-primary" id='spinner-grow' role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" id='goto-tonsor' disabled style="margin-bottom:20px;"
+                class="btn btn-primary btn-lg btn-block" onclick="window.open('http://127.0.0.1:6006');">Modify the
+                Property below</button>
+              <!-- <button type="button" id='goto-tonsor' style="margin-bottom:20px; display: none;"
+                class="btn btn-primary btn-lg btn-block">Modify the
+                Property below</button> -->
 
-        <div id='toast-success' class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay=' 2000'>
-          <div class="toast-header">
-            <img src="..." class="rounded mr-2" alt="...">
-            <strong class="mr-auto">AI Sketch</strong>
-            <small>Just Now</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="toast-body" >
-            Upload Successfully!
-          </div>
-        </div>
-
-        <div id='toast-fail' class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay=' 2000'>
-          <div class="toast-header">
-            <img src="..." class="rounded mr-2" alt="...">
-            <strong class="mr-auto">AI Sketch</strong>
-            <small>Just Now</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="toast-body" >
-            Failed
-          </div>
-        </div>
-
-        <div class="input-group mb-3" id="start_info">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Input Dim</span>
-          </div>
-          <input class="form-control" type="text" id="start_dim">
-        </div>
-
-        <div class="input-group mb-3" id="end_info">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Output Dim</span>
-          </div>
-          <input class="form-control" type="text" id="end_dim">
-        </div>
-
-        <div id="conv_info">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">sizeX</span>
             </div>
-            <input class="form-control" type="text" id="conv_sizeX">
           </div>
+          <div class="row">
+            <div class="col-md-12" id='argument'>
+              <div class="input-group mb-3" id="start_info">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Input Dim</span>
+                </div>
+                <input class="form-control" type="text" id="start_dim">
+              </div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">sizeY</span>
+              <div class="input-group mb-3" id="end_info">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Output Dim</span>
+                </div>
+                <input class="form-control" type="text" id="end_dim">
+              </div>
+
+              <div id="conv_info">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">sizeX</span>
+                  </div>
+                  <input class="form-control" type="text" id="conv_sizeX">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">sizeY</span>
+                  </div>
+                  <input class="form-control" type="text" id="conv_sizeY">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">strideX</span>
+                  </div>
+                  <input class="form-control" type="text" id="conv_strideX">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">strideY</span>
+                  </div>
+                  <input class="form-control" type="text" id="conv_strideY">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">channel</span>
+                  </div>
+                  <input class="form-control" type="text" id="conv_channel">
+                </div>
+              </div>
+
+              <div id="pool_info">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">sizeX</span>
+                  </div>
+                  <input class="form-control" type="text" id="pool_sizeX">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">sizeY</span>
+                  </div>
+                  <input class="form-control" type="text" id="pool_sizeY">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">strideX</span>
+                  </div>
+                  <input class="form-control" type="text" id="pool_strideX">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">strideY</span>
+                  </div>
+                  <input class="form-control" type="text" id="pool_strideY">
+                </div>
+
+              </div>
+
+              <div class="input-group mb-3" id="dense_info">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Dense Number</span>
+                </div>
+                <input class="form-control" type="text" id="dense_num">
+              </div>
+
+              <div class="input-group mb-3" id="dropout_info">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Rate</span>
+                </div>
+                <input class="form-control" type="text" id="dropout_rate">
+              </div>
+
+              <div class="input-group mb-3" id="act_info">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for='act_func'>Activation Func</label>
+                </div>
+                <select class="custom-select" id="act_func">
+                  <!-- <option selected>Choose...</option> -->
+                  <option selected='selected' value="relu">Relu</option>
+                  <option value="elu">Elu</option>
+                  <option value="sigmoid">Sigmoid</option>
+                  <option value="linear">Linear</option>
+                </select>
+              </div>
             </div>
-            <input class="form-control" type="text" id="conv_sizeY">
           </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="spinner-grow text-info" id='spinner-grow' role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">strideX</span>
-            </div>
-            <input class="form-control" type="text" id="conv_strideX">
-          </div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">strideY</span>
-            </div>
-            <input class="form-control" type="text" id="conv_strideY">
-          </div>
+              <div id='toast-train' class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+                data-delay='3000'>
+                <div class="toast-header">
+                  <img src="assets/radic-blue.png" height=15 class="rounded mr-2">
+                  <strong class="mr-auto">AI Sketch</strong>
+                  <small>Just Now</small>
+                  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  Train Successfully!
+                </div>
+              </div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">channel</span>
+              <div id='toast-fail' class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+                data-delay='5000'>
+                <div class="toast-header">
+                  <img src="assets/radic-blue.png" height=15 class="rounded mr-2">
+                  <strong class="mr-auto">AI Sketch</strong>
+                  <small>Just Now</small>
+                  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  
+                </div>
+              </div>
+
             </div>
-            <input class="form-control" type="text" id="conv_channel">
           </div>
         </div>
-
-        <!-- <div class="input-group mb-3" id="pool_info">
-          <label>sizeX: </label><input class="form-control" type="text" id="pool_sizeX">
-          <label>sizeY: </label><input class="form-control" type="text" id="pool_sizeY">
-          <label>strideX: </label><input class="form-control" type="text" id="pool_strideX">
-          <label>strideY: </label><input class="form-control" type="text" id="pool_strideY">
-        </div> -->
-        <div id="pool_info">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">sizeX</span>
-            </div>
-            <input class="form-control" type="text" id="pool_sizeX">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">sizeY</span>
-            </div>
-            <input class="form-control" type="text" id="pool_sizeY">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">strideX</span>
-            </div>
-            <input class="form-control" type="text" id="pool_strideX">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">strideY</span>
-            </div>
-            <input class="form-control" type="text" id="pool_strideY">
-          </div>
-
-        </div>
-
-
-        <!-- <div id="act_info">
-          <label>Activation Func: </label><input class="form-control" type="text" id="act_func">
-        </div> -->
-        <div class="input-group mb-3" id="dense_info">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Dense Number</span>
-          </div>
-          <input class="form-control" type="text" id="dense_num">
-        </div>
-
-        <div class="input-group mb-3" id="dropout_info">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Rate</span>
-          </div>
-          <input class="form-control" type="text" id="dropout_rate">
-        </div>
-        <!-- 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Input Dim</span>
-          </div>
-          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-        </div>
-
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Output Dim</span>
-          </div>
-          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-        </div> -->
-
-
-
-        <div class="input-group mb-3" id="act_info">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for='act_func'>Activation Func</label>
-          </div>
-          <select class="custom-select" id="act_func">
-            <!-- <option selected>Choose...</option> -->
-            <option selected='selected' value="relu">Relu</option>
-            <option value="elu">Elu</option>
-            <option value="sigmoid">Sigmoid</option>
-            <option value="linear">Linear</option>
-          </select>
-        </div>
-
-
-
-
       </div>
+
+
+
+
+
+
     </div>
+  </div>
   </div>
 </body>
 

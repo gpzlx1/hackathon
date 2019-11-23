@@ -39,6 +39,7 @@ def hello():
 @app.route('/train', methods=["GET", "POST"])
 def train():
     if request.method == "POST":
+        os.system("rm -rf log/*")
         data = request.get_data()
         import json
         data = json.loads(data)
@@ -51,6 +52,10 @@ def train():
         else:
             err = cnn_or_err
             return jsonify(err)
+
+if __name__ =="__main__":
+    os.system("nohup ./venv/bin/tensorboard --logdir log &")
+    app.run(port='80', debug=False, host="0.0.0.0")
 
 
 

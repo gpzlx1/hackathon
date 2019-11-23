@@ -3,8 +3,12 @@
     src : url('../assets/font/Inconsolata-Regular.ttf');
 }
 
+*{
+    font-family: 'Inconsolata-Regular';
+}
+
 .row-align {
-    padding-left: 80px;
+    padding-left: 9.5rem;
 }
 
 #prompt {
@@ -36,7 +40,7 @@
 }
 
 .progress-bar {
-    text-align: right;
+    text-align: left;
 }
 
 .question-mark {
