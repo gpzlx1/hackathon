@@ -1,7 +1,9 @@
 import train
 import predict
+import buildnn
 import PIL 
 import numpy as np
+import json
 
 nnParameter = [
     {
@@ -53,9 +55,15 @@ nnParameter = [
 
 
 if __name__ == "__main__":
-    cnn = train.CNN(nnParameter)
-    dataresource = train.DataSource()
-    trainApp = train.Train(dataresource)
-    trainApp.train(cnn)
-    ret = predict.predict_with_load("./pict/pre.jpg")
-    print(ret)
+    with open('./json_test/test3.json') as f:
+        data = json.load(f)
+    status, cnn_or_err = buildnn.cnn(data)
+    if(status):
+        cnn = cnn_or_err
+        dataresource = train.DataSource()
+        trainApp = train.Train(dataresource)
+        trainApp.train(cnn)
+        print("ok")
+    else:
+        err = cnn_or_err
+        print(err)
