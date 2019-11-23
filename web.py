@@ -31,6 +31,10 @@ def predict():
         result = pd.predict_with_load("./pict/pre.png")
         print(result)
         return jsonify(result)
+
+@app.route('/')
+def hello():
+    return make_response(render_template('index.html', page='index.html'))
     
 @app.route('/train', methods=["GET", "POST"])
 def train():
