@@ -8,3 +8,5 @@ pict/*
 pict
 model/*
 model
+tfjs/*
+tfjs
