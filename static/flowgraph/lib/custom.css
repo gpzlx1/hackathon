@@ -153,3 +153,18 @@ h4 {
 option {
   font-family: 'Inconsolata-Regular';
 }
+
+#info-board {
+  padding-left: 0px;
+  margin-top: 40px;
+}
+
+#spinner-grow {
+  display: none;
+  width: 5rem;
+  height: 5rem;
+}
+
+.toast {
+  display: none;
+}

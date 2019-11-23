@@ -126,7 +126,40 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3" style="padding-top:50px;">
+      <div class="col-md-3 text-center" id='info-board'>
+
+        <!-- waiting for training -->
+        <div class="spinner-grow text-primary" id='spinner-grow' role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+
+        <div id='toast-success' class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay=' 2000'>
+          <div class="toast-header">
+            <img src="..." class="rounded mr-2" alt="...">
+            <strong class="mr-auto">AI Sketch</strong>
+            <small>Just Now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body" >
+            Upload Successfully!
+          </div>
+        </div>
+
+        <div id='toast-fail' class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay=' 2000'>
+          <div class="toast-header">
+            <img src="..." class="rounded mr-2" alt="...">
+            <strong class="mr-auto">AI Sketch</strong>
+            <small>Just Now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body" >
+            Failed
+          </div>
+        </div>
 
         <div class="input-group mb-3" id="start_info">
           <div class="input-group-prepend">
@@ -252,7 +285,7 @@
 
         <div class="input-group mb-3" id="act_info">
           <div class="input-group-prepend">
-            <label class="input-group-text" for='act_func' >Activation Func</label>
+            <label class="input-group-text" for='act_func'>Activation Func</label>
           </div>
           <select class="custom-select" id="act_func">
             <!-- <option selected>Choose...</option> -->

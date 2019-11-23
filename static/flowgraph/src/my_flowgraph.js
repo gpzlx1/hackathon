@@ -338,20 +338,32 @@ $(document).ready(function () {
   });
 
   $('.get_data').click(function () {
+    //hide and show
+    $('#info-board').children().hide();
+    $('#spinner-grow').show();
+
     var url_upload_json = 'http://127.0.0.1:5000/train';
     var data = $flowchart.flowchart('getData');
-    // window.parent.send_json(data);
     console.log(data);
     data = JSON.stringify(data, null, 2);
     jq3(function ($) {
-      console.log(1);
-      // console.log($.prototype.jquery);
       $.post(
         url_upload_json,
         data,
         function (response_data) {
           // $('.toast').toast('show');
-          console.log('yes');
+          $('#spinner-grow').show();
+          // console.log(response_data);
+          if (response_data.status == 'true') {
+            $('#toast-success .toast-body').text(response_data.msg);
+            $('#toast-success').show();
+            console.log('success');
+          }
+          else {
+            console.log('failed');
+            $('#toast-fail').show();
+            $('#toast-fail').toast(response_data.msg);
+          }
         },
         'json'
       );
