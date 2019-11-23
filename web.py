@@ -39,13 +39,15 @@ def hello():
 @app.route('/train', methods=["GET", "POST"])
 def train():
     if request.method == "POST":
-        data = request.get_json()
+        data = request.get_data()
+        import json
+        data = json.loads(data)
         status, cnn_or_err = buildnn.cnn(data)
         if(status):
             cnn = cnn_or_err
             trainApp = ta.Train(dataresource)
             trainApp.train(cnn)
-            return "finish training"
+            return jsonify({"status":True, "index":-1, "msg":"finish training"})
         else:
             err = cnn_or_err
             return jsonify(err)
