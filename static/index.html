@@ -28,18 +28,70 @@
             <div class="col-md-1">.col-md-1</div>
             <div class="col-md-1">.col-md-1</div>
             <div class="col-md-1">.col-md-1</div> -->
+
+            <!-- navigation bar -->
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Disabled</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
         </div>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <iframe frameborder="0" scrolling="no" onload="resizeIframe(this)" width='100%'
                     src="flowgraph/index.html"></iframe>
                 <!-- <div class="embed-responsive embed-responsive-13by9">
                     <iframe class="embed-responsive-item" scrolling="no" src="flowgraph/index.html" allowfullscreen></iframe>
                 </div> -->
             </div>
-            <div class="col-md-3">.col-md-4</div>
+            <!-- <div class="col-md-3">.col-md-4</div> -->
         </div>
-        <div class="row" style='padding-left:50px;margin-bottom:50px; margin-top:50px;'>
+        <div class="row row-align" style="margin-top:30px;">
+            <div class="col-md-1">
+                <img id="star" src="assets/icon/star.svg">
+            </div>
+            <div class="col-md-11">
+                <div id="prompt">
+                    Drawing your number below
+                </div>
+            </div>
+        </div>
+        <div class="row row-align" style="margin-top:10px;">
             <div class="col-md-5">
                 <!-- drawing board -->
                 <div class="container-fluid" style="border:solid #f7f7f9; border-radius:1rem;">

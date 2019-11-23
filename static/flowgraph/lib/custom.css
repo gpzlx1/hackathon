@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Inconsolata-Regular';
+  src: url('../../assets/font/Inconsolata-Regular.ttf');
+}
+
+* {
+  font-family: 'Inconsolata-Regular';
+}
+
 .flowchart-example-container {
   height: 200px;
   border: 1px solid #BBB;
@@ -59,7 +68,7 @@ h4 {
 
 #chart_container {
   width: 100%;
-  height: 500px;
+  height: 470px;
   overflow: hidden;
   background: repeating-linear-gradient( 45deg, #eee, #eee 10px, #e5e5e5 10px, #e5e5e5 20px);
   /* border: 1px solid black; */
@@ -87,12 +96,26 @@ h4 {
                                   not supported by any browser */
 }
 
+#star {
+  height: 30px;
+  margin-left: -15px;
+}
+
+.prompt {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  ;
+}
+
 .draggable_operators {
   margin-top: 10px;
 }
 
 .draggable_operators_label {
   margin-bottom: 5px;
+  font-size: 1.25rem;
+  margin-left: -55px;
+  font-family: 'Inconsolata-Regular';
 }
 
 .draggable_operators_divs {
@@ -125,4 +148,8 @@ h4 {
   height: 25.6px;
   width: 24px;
   margin: auto;
+}
+
+option {
+  font-family: 'Inconsolata-Regular';
 }

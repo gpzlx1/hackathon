@@ -322,7 +322,7 @@ $(document).ready(function () {
     }
   });
 
-  $act_func.keyup(function () {
+  $act_func.change(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
@@ -338,19 +338,20 @@ $(document).ready(function () {
   });
 
   $('.get_data').click(function () {
-    var url_upload_json = '127.0.0.1:5000/train';
+    var url_upload_json = 'http://127.0.0.1:5000/train';
     var data = $flowchart.flowchart('getData');
     // window.parent.send_json(data);
     console.log(data);
     // $('#flowchart_data').val(JSON.stringify(data, null, 2));
     jq3(function ($) {
+      console.log(1);
       // console.log($.prototype.jquery);
       $.post(
         url_upload_json,
         data,
         function (response_data) {
           // $('.toast').toast('show');
-          console.log(response_data);
+          console.log('yes');
         },
         'json'
       );
@@ -369,7 +370,7 @@ $(document).ready(function () {
   function getOperatorData($element) {
     var nbInputs = parseInt($element.data('nb-inputs'));
     var nbOutputs = parseInt($element.data('nb-outputs'));
-    var Title = $element.text();
+    var Title = $element.attr('id');
     var DefaultInfo;
     if (Title == "Start Node") {
       Title = Title + parseInt(Idx_Start / 2);

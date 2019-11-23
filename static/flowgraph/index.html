@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="./lib/print.css" media="print">
 
   <script src='lib/jquery-3.4.1.min.js'></script>
-  <script> var jq3= jQuery.noConflict(true); </script>
+  <script> var jq3 = jQuery.noConflict(true); </script>
   <script src="./lib/jquery-1.10.2.js"></script>
   <script src="./lib/jquery-ui.js"></script>
 
@@ -33,82 +33,239 @@
 </head>
 
 <body>
-  <div id="content-wrapper">
-    <div class="inner clearfix">
-      <div class="flowchart-example">
-        <h4 id="drags">AI Sketch</h4>
-        <div id="chart_container" style="overflow: hidden; position: relative;">
-          <div class="flowchart-example-container flowchart-container" id="example_9"
-            style="transform: matrix(1, 0, 0, 1, -655, -750); backface-visibility: hidden; transform-origin: 50% 50%; cursor: move; transition: none 0s ease 0s;">
-            <svg class="flowchart-temporary-link-layer">
-              <line x1="0" y1="0" x2="0" y2="0" stroke-dasharray="6,6" stroke-width="4" stroke="black" fill="none">
-              </line>
-            </svg>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        <div id="content-wrapper">
+          <div class="inner clearfix">
+            <div class="flowchart-example">
+              <h4 id="drags">AI Sketch</h4>
+              <div id="chart_container" style="overflow: hidden; position: relative;">
+                <div class="flowchart-example-container flowchart-container" id="example_9"
+                  style="transform: matrix(1, 0, 0, 1, -655, -750); backface-visibility: hidden; transform-origin: 50% 50%; cursor: move; transition: none 0s ease 0s;">
+                  <svg class="flowchart-temporary-link-layer">
+                    <line x1="0" y1="0" x2="0" y2="0" stroke-dasharray="6,6" stroke-width="4" stroke="black"
+                      fill="none">
+                    </line>
+                  </svg>
+                </div>
+              </div>
+              <div class="draggable_operators">
+                <div class="container-fluid prompt">
+                  <div class="row">
+                    <div class="col-md-1">
+                      <img id="star" src="assets/star.svg">
+                    </div>
+                    <div class="col-md-11">
+                      <div class="draggable_operators_label">
+                        Operators (drag and drop them in the flowchart)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="draggable_operators_divs">
+                  <div id='End Node' class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary"
+                    data-nb-inputs="1" data-nb-outputs="0">End Node</div>
+                  <div id='Start Node' class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary"
+                    data-nb-inputs="0" data-nb-outputs="1">
+                    Start Node</div>
+                  <div id='Pooling' class="draggable_operator ui-draggable ui-draggable-handle btn btn-danger"
+                    data-nb-inputs="1" data-nb-outputs="1">
+                    Pooling</div>
+                  <div id='Convolution' class="draggable_operator ui-draggable ui-draggable-handle btn btn-info"
+                    data-nb-inputs="1" data-nb-outputs="1">
+                    Convolution</div>
+                  <div id='Fully-connected' class="draggable_operator ui-draggable ui-draggable-handle btn btn-warning"
+                    data-nb-inputs="1" data-nb-outputs="1">
+                    Fully-connected</div>
+                  <div id='Dropout' class="draggable_operator ui-draggable ui-draggable-handle btn btn-secondary"
+                    data-nb-inputs="1" data-nb-outputs="1">
+                    Dropout</div>
+                  <div id='Activation' class="draggable_operator ui-draggable ui-draggable-handle btn btn-success"
+                    data-nb-inputs="1" data-nb-outputs="1">
+                    Activation</div>
+                </div>
+              </div>
+              <button class="delete_selected_button btn btn-dark">Delete selected operator / link</button>
+              <button class="get_data"><img class='icon' src='assets/run.svg'></button>
+              <!-- <div>
+                      <textarea id="flowchart_data"></textarea>
+                  </div> -->
+
+              <!-- <div id="start_info">
+                <label>Input Dim: </label><input type="text" id="start_dim">
+              </div>
+              <div id="end_info">
+                <label>Output Dim: </label><input type="text" id="end_dim">
+              </div>
+              <div id="conv_info">
+                <label>sizeX: </label><input type="text" id="conv_sizeX">
+                <label>sizeY: </label><input type="text" id="conv_sizeY">
+                <label>strideX: </label><input type="text" id="conv_strideX">
+                <label>strideY: </label><input type="text" id="conv_strideY">
+                <label>channel: </label><input type="text" id="conv_channel">
+              </div>
+              <div id="pool_info">
+                <label>sizeX: </label><input type="text" id="pool_sizeX">
+                <label>sizeY: </label><input type="text" id="pool_sizeY">
+                <label>strideX: </label><input type="text" id="pool_strideX">
+                <label>strideY: </label><input type="text" id="pool_strideY">
+              </div>
+              <div id="act_info">
+                <label>Activation Func: </label><input type="text" id="act_func">
+              </div>
+              <div id="dense_info">
+                <label>Dense num: </label><input type="text" id="dense_num">
+              </div>
+              <div id="dropout_info">
+                <label>Rate: </label><input type="text" id="drop_rate">
+              </div> -->
+              <script src="src/my_flowgraph.js"></script>
+            </div>
           </div>
         </div>
-        <div class="draggable_operators">
-          <div class="draggable_operators_label">
-            Operators (drag and drop them in the flowchart):
+      </div>
+      <div class="col-md-3" style="padding-top:50px;">
+
+        <div class="input-group mb-3" id="start_info">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Input Dim</span>
           </div>
-          <div class="draggable_operators_divs">
-            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary" data-nb-inputs="1"
-              data-nb-outputs="0">End
-              Node</div>
-            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary" data-nb-inputs="0"
-              data-nb-outputs="1">
-              Start Node</div>
-            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-danger" data-nb-inputs="1"
-              data-nb-outputs="1">
-              Pooling</div>
-            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-info" data-nb-inputs="1"
-              data-nb-outputs="1">
-              Convolution</div>
-            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-warning" data-nb-inputs="1"
-              data-nb-outputs="1">
-              Fully-connected</div>
-            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-secondary" data-nb-inputs="1"
-              data-nb-outputs="1">
-              Dropout</div>
-            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-success" data-nb-inputs="1"
-              data-nb-outputs="1">
-              Activation</div>
+          <input class="form-control" type="text" id="start_dim">
+        </div>
+
+        <div class="input-group mb-3" id="end_info">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Output Dim</span>
+          </div>
+          <input class="form-control" type="text" id="end_dim">
+        </div>
+
+        <div id="conv_info">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">sizeX</span>
+            </div>
+            <input class="form-control" type="text" id="conv_sizeX">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">sizeY</span>
+            </div>
+            <input class="form-control" type="text" id="conv_sizeY">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">strideX</span>
+            </div>
+            <input class="form-control" type="text" id="conv_strideX">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">strideY</span>
+            </div>
+            <input class="form-control" type="text" id="conv_strideY">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">channel</span>
+            </div>
+            <input class="form-control" type="text" id="conv_channel">
           </div>
         </div>
-        <button class="delete_selected_button btn btn-dark">Delete selected operator / link</button>
-        <button class="get_data"><img class='icon' src='assets/run.svg'></button>
-        <!-- <div>
-            <textarea id="flowchart_data"></textarea>
+
+        <!-- <div class="input-group mb-3" id="pool_info">
+          <label>sizeX: </label><input class="form-control" type="text" id="pool_sizeX">
+          <label>sizeY: </label><input class="form-control" type="text" id="pool_sizeY">
+          <label>strideX: </label><input class="form-control" type="text" id="pool_strideX">
+          <label>strideY: </label><input class="form-control" type="text" id="pool_strideY">
+        </div> -->
+        <div id="pool_info">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">sizeX</span>
+            </div>
+            <input class="form-control" type="text" id="pool_sizeX">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">sizeY</span>
+            </div>
+            <input class="form-control" type="text" id="pool_sizeY">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">strideX</span>
+            </div>
+            <input class="form-control" type="text" id="pool_strideX">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">strideY</span>
+            </div>
+            <input class="form-control" type="text" id="pool_strideY">
+          </div>
+
+        </div>
+
+
+        <!-- <div id="act_info">
+          <label>Activation Func: </label><input class="form-control" type="text" id="act_func">
+        </div> -->
+        <div class="input-group mb-3" id="dense_info">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Dense Number</span>
+          </div>
+          <input class="form-control" type="text" id="dense_num">
+        </div>
+
+        <div class="input-group mb-3" id="dropout_info">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Rate</span>
+          </div>
+          <input class="form-control" type="text" id="dropout_rate">
+        </div>
+        <!-- 
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Input Dim</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Output Dim</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div> -->
 
-        <div id="start_info">
-          <label>Input Dim: </label><input type="text" id="start_dim">
+
+
+        <div class="input-group mb-3" id="act_info">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for='act_func' >Activation Func</label>
+          </div>
+          <select class="custom-select" id="act_func">
+            <!-- <option selected>Choose...</option> -->
+            <option selected='selected' value="relu">Relu</option>
+            <option value="elu">Elu</option>
+            <option value="sigmoid">Sigmoid</option>
+            <option value="linear">Linear</option>
+          </select>
         </div>
-        <div id="end_info">
-          <label>Output Dim: </label><input type="text" id="end_dim">
-        </div>
-        <div id="conv_info">
-          <label>sizeX: </label><input type="text" id="conv_sizeX">
-          <label>sizeY: </label><input type="text" id="conv_sizeY">
-          <label>strideX: </label><input type="text" id="conv_strideX">
-          <label>strideY: </label><input type="text" id="conv_strideY">
-          <label>channel: </label><input type="text" id="conv_channel">
-        </div>
-        <div id="pool_info">
-          <label>sizeX: </label><input type="text" id="pool_sizeX">
-          <label>sizeY: </label><input type="text" id="pool_sizeY">
-          <label>strideX: </label><input type="text" id="pool_strideX">
-          <label>strideY: </label><input type="text" id="pool_strideY">
-        </div>
-        <div id="act_info">
-          <label>Activation Func: </label><input type="text" id="act_func">
-        </div>
-        <div id="dense_info">
-          <label>Dense num: </label><input type="text" id="dense_num">
-        </div>
-        <div id="dropout_info">
-          <label>Rate: </label><input type="text" id="drop_rate">
-        </div>
-        <script src="src/my_flowgraph.js"></script>
+
+
+
+
       </div>
     </div>
   </div>

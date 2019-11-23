@@ -1,5 +1,25 @@
-.probility-item{
-    border:solid #f7f7f9;
+@font-face{
+    font-family: 'Inconsolata-Regular';
+    src : url('../assets/font/Inconsolata-Regular.ttf');
+}
+
+.row-align {
+    padding-left: 80px;
+}
+
+#prompt {
+    margin-bottom: 5px;
+    font-size: 1.25rem;
+    margin-left: -75px;
+    font-family: 'Inconsolata-Regular';
+}
+
+#star {
+    height: 30px;
+}
+
+.probility-item {
+    border: solid #f7f7f9;
     border-radius: 0.5rem;
 }
 
@@ -7,7 +27,6 @@
     margin-top: 10px;
     margin-bottom: 10px;
     display: none;
-    
 }
 
 .progress {
@@ -16,7 +35,7 @@
     margin-bottom: 15px;
 }
 
-.progress-bar{
+.progress-bar {
     text-align: right;
 }
 
