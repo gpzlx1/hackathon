@@ -12,7 +12,7 @@ from src import buildnn
 from io import BytesIO
 from flask import Flask, session, redirect, url_for, escape, request, render_template, jsonify, make_response, json
 from flask import send_file, flash
-from werkzeug import secure_filename
+
 app = Flask(__name__, static_folder='static')
 dataresource = ta.DataSource()
 
