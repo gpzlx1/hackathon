@@ -516,5 +516,7 @@ $(document).ready(function () {
     }
   });
 
-
+  // var padding = parseInt($('.clearfix').css('marginLeft')) + parseInt($('.col-md-9').css('paddingLeft')) +"px";
+  // console.log(padding);
+  // $('.row-align').css("paddingLeft", padding);
 });
