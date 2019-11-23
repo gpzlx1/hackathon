@@ -76,7 +76,7 @@ def get_outputshape(nnParamter):
 
         if i == 0:
             if value["name"] != "dense" and value["name"] != "conv":
-                err["index"] = 0
+                err["index"] = 1
                 err["msg"] = "the first layer should be conv or dense"
                 return False, err
 
@@ -84,11 +84,11 @@ def get_outputshape(nnParamter):
             continue
         elif value["name"] == "conv" or value["name"] == "pool":
             if output[0] < value["sizeX"]:
-                err["index"] = i
+                err["index"] = i + 1
                 err["msg"] = "the sizeX and strideX is not valied"
                 return False, err
             if output[1] < value["sizeY"]:
-                err["index"] = i
+                err["index"] = i + 1
                 err["msg"] = "the sizeY and strideY is not valied"
                 return False, err
             x1 = int((output[0] - 1 + 1) / value["strideX"] + 0.5)
@@ -209,10 +209,15 @@ class CNN(object):
         self.model = model
  
 def cnn(data):
+    if data['operators'] == {} or data['links'] == {}:
+        err = {}
+        err["status"] = False
+        err["msg"] = "the canvas should not be null and you should design a complete workflow"
+        err["index"] = -1
+        return False, err
     nn, seq = json2net(data)
     nn = nn[1:]
     status, err = get_outputshape(nn)
-    print(err)
     if(status):
         cnn = CNN(nn, err["if_add"])
         return True, cnn
