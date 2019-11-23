@@ -67,6 +67,7 @@ def get_outputshape(nnParamter):
     output = [28, 28, 1]
     err = {}
     err["status"] = False
+    err["index"] = -1
     if(nnParamter[-1]["name"] != "end"):
         err = "You should design a complete nerual network"
         return False, err
@@ -117,7 +118,6 @@ def get_outputshape(nnParamter):
         else:
             err["msg"] = "you should never see this line in console"
             return False, err
-        print(output)
     err["msg"] = "you should never see this line in console"
     return False, err
 
