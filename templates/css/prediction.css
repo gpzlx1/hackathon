@@ -1,0 +1,34 @@
+.probility-item{
+    border:solid #f7f7f9;
+    border-radius: 0.5rem;
+}
+
+.spinner-border {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+    
+}
+
+.progress {
+    height: 22px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.progress-bar{
+    text-align: right;
+}
+
+.question-mark {
+    margin-top: 10px;
+    margin-top: 10px;
+    height: 30px;
+}
+
+.icon-number {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    display: none;
+}

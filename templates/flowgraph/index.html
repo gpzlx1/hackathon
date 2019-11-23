@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="./lib/css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./lib/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./lib/github-light.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./lib/print.css" media="print">
+
+  <script src='lib/jquery-3.4.1.min.js'></script>
+  <script> var jq3= jQuery.noConflict(true); </script>
+  <script src="./lib/jquery-1.10.2.js"></script>
+  <script src="./lib/jquery-ui.js"></script>
+
+  <script src="./lib/jquery.panzoom.min.js"></script>
+  <script src="./lib/jquery.mousewheel.min.js"></script>
+
+  <script src="./lib/jquery.flowchart.js"></script>
+  <script src="./lib/main.js"></script>
+  <link rel="stylesheet" href="./lib/jquery.flowchart.min.css">
+  <link rel="stylesheet" href="./lib/custom.css">
+
+  <!-- <script src='lib/jquery-3.4.1.min.js'></script> -->
+  <script src="lib/popper.min.js"></script>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/bootstrap.min.js"></script>
+
+  <title>test</title>
+</head>
+
+<body>
+  <div id="content-wrapper">
+    <div class="inner clearfix">
+      <div class="flowchart-example">
+        <h4 id="drags">AI Sketch</h4>
+        <div id="chart_container" style="overflow: hidden; position: relative;">
+          <div class="flowchart-example-container flowchart-container" id="example_9"
+            style="transform: matrix(1, 0, 0, 1, -655, -750); backface-visibility: hidden; transform-origin: 50% 50%; cursor: move; transition: none 0s ease 0s;">
+            <svg class="flowchart-temporary-link-layer">
+              <line x1="0" y1="0" x2="0" y2="0" stroke-dasharray="6,6" stroke-width="4" stroke="black" fill="none">
+              </line>
+            </svg>
+          </div>
+        </div>
+        <div class="draggable_operators">
+          <div class="draggable_operators_label">
+            Operators (drag and drop them in the flowchart):
+          </div>
+          <div class="draggable_operators_divs">
+            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary" data-nb-inputs="1"
+              data-nb-outputs="0">End
+              Node</div>
+            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-primary" data-nb-inputs="0"
+              data-nb-outputs="1">
+              Start Node</div>
+            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-danger" data-nb-inputs="1"
+              data-nb-outputs="1">
+              Pooling</div>
+            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-info" data-nb-inputs="1"
+              data-nb-outputs="1">
+              Convolution</div>
+            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-warning" data-nb-inputs="1"
+              data-nb-outputs="1">
+              Fully-connected</div>
+            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-secondary" data-nb-inputs="1"
+              data-nb-outputs="1">
+              Dropout</div>
+            <div class="draggable_operator ui-draggable ui-draggable-handle btn btn-success" data-nb-inputs="1"
+              data-nb-outputs="1">
+              Activation</div>
+          </div>
+        </div>
+        <button class="delete_selected_button btn btn-dark">Delete selected operator / link</button>
+        <button class="get_data"><img class='icon' src='assets/run.svg'></button>
+        <!-- <div>
+            <textarea id="flowchart_data"></textarea>
+        </div> -->
+
+        <div id="start_info">
+          <label>Input Dim: </label><input type="text" id="start_dim">
+        </div>
+        <div id="end_info">
+          <label>Output Dim: </label><input type="text" id="end_dim">
+        </div>
+        <div id="conv_info">
+          <label>sizeX: </label><input type="text" id="conv_sizeX">
+          <label>sizeY: </label><input type="text" id="conv_sizeY">
+          <label>strideX: </label><input type="text" id="conv_strideX">
+          <label>strideY: </label><input type="text" id="conv_strideY">
+          <label>channel: </label><input type="text" id="conv_channel">
+        </div>
+        <div id="pool_info">
+          <label>sizeX: </label><input type="text" id="pool_sizeX">
+          <label>sizeY: </label><input type="text" id="pool_sizeY">
+          <label>strideX: </label><input type="text" id="pool_strideX">
+          <label>strideY: </label><input type="text" id="pool_strideY">
+        </div>
+        <div id="act_info">
+          <label>Activation Func: </label><input type="text" id="act_func">
+        </div>
+        <div id="dense_info">
+          <label>Dense num: </label><input type="text" id="dense_num">
+        </div>
+        <div id="dropout_info">
+          <label>Rate: </label><input type="text" id="drop_rate">
+        </div>
+        <script src="src/my_flowgraph.js"></script>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
