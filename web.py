@@ -24,9 +24,9 @@ def predict():
     if request.method == "POST":
         bb64 = request.form["img_base64"]
         bb64 = bb64[bb64.find(',')+1:]
-        with open('./pict/pre.jpg', 'wb') as f:
+        with open('./pict/pre.png', 'wb') as f:
             f.write(base64.b64decode(bb64))
-        result = pd.predict_with_load("./pict/pre.jpg")
+        result = pd.predict_with_load("./pict/pre.png")
         print(result)
         return jsonify(result)
 

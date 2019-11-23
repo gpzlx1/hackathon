@@ -11,7 +11,7 @@ def read_image_preprocess(imagePath):
     img = Image.open(imagePath).convert('L')
     img = img.resize((28,28))
     flatten_img = np.reshape(img, (28, 28, 1))
-    x = np.array([1 - flatten_img], dtype=float)
+    x = np.array([255 - flatten_img], dtype=np.float32)
     return x /255.0
 
 def predict_with_load(image_path):
@@ -20,7 +20,7 @@ def predict_with_load(image_path):
     y = model.predict(x)
     ret = {}
     for i in range(10):
-        ret[str(i)] = str(y[0][i])
+        ret[str(i)] = "{:.4f}".format(y[0][i])
     return ret
 
 
