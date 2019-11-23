@@ -342,7 +342,7 @@ $(document).ready(function () {
     var data = $flowchart.flowchart('getData');
     // window.parent.send_json(data);
     console.log(data);
-    // $('#flowchart_data').val(JSON.stringify(data, null, 2));
+    data = JSON.stringify(data, null, 2);
     jq3(function ($) {
       console.log(1);
       // console.log($.prototype.jquery);
