@@ -71,13 +71,11 @@ def get_outputshape(nnParamter):
     if(nnParamter[-1]["name"] != "end"):
         err = "You should design a complete nerual network"
         return False, err
-    for i in range(1,len(nnParamter)):
+    for i in range(0, len(nnParamter)):
         value = nnParamter[i]
 
-        if i == 1:
-            if value["name"] == "dense" or value["name"] == "conv":
-                pass
-            else:
+        if i == 0:
+            if value["name"] != "dense" and value["name"] != "conv":
                 err["index"] = 1
                 err["msg"] = "the first layer should be conv or dense"
                 return False, err
@@ -213,6 +211,7 @@ class CNN(object):
 def cnn(data):
     nn, seq = json2net(data)
     nn = nn[1:]
+    print(nn)
     status, err = get_outputshape(nn)
     if(status):
         cnn = CNN(nn, err["if_add"])

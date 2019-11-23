@@ -55,7 +55,7 @@ nnParameter = [
 
 
 if __name__ == "__main__":
-    with open('./json_test/test3.json') as f:
+    with open('./json_test/test1.json') as f:
         data = json.load(f)
     status, cnn_or_err = buildnn.cnn(data)
     if(status):
