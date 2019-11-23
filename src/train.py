@@ -55,6 +55,14 @@ class CNN(object):
                 else:
                     model.add(layers.Conv2D(layer["channel"], \
                     (layer["sizeX"], layer["sizeY"]), strides=(layer["strideX"],layer["strideY"]), input_shape=(28, 28, 1)))
+
+            elif i == 0 and layer["name"] == "dense": #第一层特殊
+                status, act_name = get_next(nnParameter, i)
+                if status:
+                    model.add(layers.Dense(layer["num"], activation=act_name, input_shape=(28,28,1)))
+                    i = i + 1
+                else:
+                    model.add(layers.Dense(layer["num"], input_shape=(28,28,1)))
             
             elif i != length - 1:#不是最后一层
 
