@@ -207,6 +207,30 @@ class CNN(object):
         model.summary()
 
         self.model = model
+
+def switchToNum(nnParameter):
+    for term in nnParameter:
+        if term["name"] == "conv":
+            term["sizeX"] =eval(term["sizeX"])
+            term["sizeY"] = eval(term["sizeY"])
+            term["strideX"] = eval(term["strideX"])
+            term["strideY"] = eval(term["strideY"])
+            term["channel"] = eval(term["channel"])
+
+        if term["name"] == "pool":
+            term["sizeX"] =eval(term["sizeX"])
+            term["sizeY"] = eval(term["sizeY"])
+            term["strideX"] = eval(term["strideX"])
+            term["strideY"] = eval(term["strideY"])
+        
+        if term["name"] == "dense":
+            term["num"] = eval(term["num"])
+        
+        if term["name"] == "dropout":
+            term["rate"] = eval(term["rate"])
+    return nnParameter
+
+
  
 def cnn(data):
     if data['operators'] == {} or data['links'] == {}:
@@ -217,6 +241,7 @@ def cnn(data):
         return False, err
     nn, seq = json2net(data)
     nn = nn[1:]
+    nn = switchToNum(nn)
     status, err = get_outputshape(nn)
     if(status):
         cnn = CNN(nn, err["if_add"])
