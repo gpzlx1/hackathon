@@ -164,7 +164,7 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        InputDim: $start_dim.val()
+        InputDim: parseInt($start_dim.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -174,7 +174,7 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        OutputDim: $end_dim.val()
+        OutputDim: parseInt($end_dim.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -184,11 +184,11 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $conv_sizeX.val(),
-        sizeY: $conv_sizeY.val(),
-        strideX: $conv_strideX.val(),
-        strideY: $conv_strideY.val(),
-        channel: $conv_channel.val()
+        sizeX: parseInt($conv_sizeX.val()),
+        sizeY: parseInt($conv_sizeY.val()),
+        strideX: parseInt($conv_strideX.val()),
+        strideY: parseInt($conv_strideY.val()),
+        channel: parseInt($conv_channel.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -198,11 +198,11 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $conv_sizeX.val(),
-        sizeY: $conv_sizeY.val(),
-        strideX: $conv_strideX.val(),
-        strideY: $conv_strideY.val(),
-        channel: $conv_channel.val()
+        sizeX: parseInt($conv_sizeX.val()),
+        sizeY: parseInt($conv_sizeY.val()),
+        strideX: parseInt($conv_strideX.val()),
+        strideY: parseInt($conv_strideY.val()),
+        channel: parseInt($conv_channel.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -212,11 +212,11 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $conv_sizeX.val(),
-        sizeY: $conv_sizeY.val(),
-        strideX: $conv_strideX.val(),
-        strideY: $conv_strideY.val(),
-        channel: $conv_channel.val()
+        sizeX: parseInt($conv_sizeX.val()),
+        sizeY: parseInt($conv_sizeY.val()),
+        strideX: parseInt($conv_strideX.val()),
+        strideY: parseInt($conv_strideY.val()),
+        channel: parseInt($conv_channel.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -226,11 +226,11 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $conv_sizeX.val(),
-        sizeY: $conv_sizeY.val(),
-        strideX: $conv_strideX.val(),
-        strideY: $conv_strideY.val(),
-        channel: $conv_channel.val()
+        sizeX: parseInt($conv_sizeX.val()),
+        sizeY: parseInt($conv_sizeY.val()),
+        strideX: parseInt($conv_strideX.val()),
+        strideY: parseInt($conv_strideY.val()),
+        channel: parseInt($conv_channel.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -240,11 +240,11 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $conv_sizeX.val(),
-        sizeY: $conv_sizeY.val(),
-        strideX: $conv_strideX.val(),
-        strideY: $conv_strideY.val(),
-        channel: $conv_channel.val()
+        sizeX: parseInt($conv_sizeX.val()),
+        sizeY: parseInt($conv_sizeY.val()),
+        strideX: parseInt($conv_strideX.val()),
+        strideY: parseInt($conv_strideY.val()),
+        channel: parseInt($conv_channel.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -254,10 +254,10 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $pool_sizeX.val(),
-        sizeY: $pool_sizeY.val(),
-        strideX: $pool_strideX.val(),
-        strideY: $pool_strideY.val()
+        sizeX: parseInt($pool_sizeX.val()),
+        sizeY: parseInt($pool_sizeY.val()),
+        strideX: parseInt($pool_strideX.val()),
+        strideY: parseInt($pool_strideY.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -267,10 +267,10 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $pool_sizeX.val(),
-        sizeY: $pool_sizeY.val(),
-        strideX: $pool_strideX.val(),
-        strideY: $pool_strideY.val()
+        sizeX: parseInt($pool_sizeX.val()),
+        sizeY: parseInt($pool_sizeY.val()),
+        strideX: parseInt($pool_strideX.val()),
+        strideY: parseInt($pool_strideY.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -280,10 +280,10 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $pool_sizeX.val(),
-        sizeY: $pool_sizeY.val(),
-        strideX: $pool_strideX.val(),
-        strideY: $pool_strideY.val()
+        sizeX: parseInt($pool_sizeX.val()),
+        sizeY: parseInt($pool_sizeY.val()),
+        strideX: parseInt($pool_strideX.val()),
+        strideY: parseInt($pool_strideY.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -293,10 +293,10 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        sizeX: $pool_sizeX.val(),
-        sizeY: $pool_sizeY.val(),
-        strideX: $pool_strideX.val(),
-        strideY: $pool_strideY.val()
+        sizeX: parseInt($pool_sizeX.val()),
+        sizeY: parseInt($pool_sizeY.val()),
+        strideX: parseInt($pool_strideX.val()),
+        strideY: parseInt($pool_strideY.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -306,7 +306,7 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        rate: $dropout_rate.val()
+        rate: parseFloat($dropout_rate.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -316,7 +316,7 @@ $(document).ready(function () {
     var selectedOperatorId = $flowchart.flowchart('getSelectedOperatorId');
     if (selectedOperatorId != null) {
       var NewInfo = {
-        num: $dense_num.val()
+        num: parseInt($dense_num.val())
       };
       $flowchart.flowchart('setOperatorInfo', selectedOperatorId, NewInfo);
     }
@@ -357,7 +357,7 @@ $(document).ready(function () {
           $('#spinner-grow').hide();
           // console.log(response_data);
           if (response_data.status == true) {
-            $('#goto-tonsor').text('Show result');
+            $('#goto-tonsor').text('Show Result');
             $('#goto-tonsor').attr('disabled', false);
 
             // console.log($.prototype.jquery);
