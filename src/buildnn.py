@@ -211,23 +211,23 @@ class CNN(object):
 def switchToNum(nnParameter):
     for term in nnParameter:
         if term["name"] == "conv":
-            term["sizeX"] =eval(term["sizeX"])
-            term["sizeY"] = eval(term["sizeY"])
-            term["strideX"] = eval(term["strideX"])
-            term["strideY"] = eval(term["strideY"])
-            term["channel"] = eval(term["channel"])
+            term["sizeX"] =int(term["sizeX"])
+            term["sizeY"] = int(term["sizeY"])
+            term["strideX"] = int(term["strideX"])
+            term["strideY"] = int(term["strideY"])
+            term["channel"] = int(term["channel"])
 
         if term["name"] == "pool":
-            term["sizeX"] =eval(term["sizeX"])
-            term["sizeY"] = eval(term["sizeY"])
-            term["strideX"] = eval(term["strideX"])
-            term["strideY"] = eval(term["strideY"])
+            term["sizeX"] =int(term["sizeX"])
+            term["sizeY"] = int(term["sizeY"])
+            term["strideX"] = int(term["strideX"])
+            term["strideY"] = int(term["strideY"])
         
         if term["name"] == "dense":
-            term["num"] = eval(term["num"])
+            term["num"] = int(term["num"])
         
         if term["name"] == "dropout":
-            term["rate"] = eval(term["rate"])
+            term["rate"] = float(term["rate"])
     return nnParameter
 
 
