@@ -54,7 +54,6 @@ def train():
             return jsonify(err)
 
 if __name__ =="__main__":
-    os.system("nohup ./venv/bin/tensorboard --logdir log &")
     app.run(port='80', debug=False, host="0.0.0.0")
 
 
