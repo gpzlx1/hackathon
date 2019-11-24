@@ -39,7 +39,7 @@ def hello():
 @app.route('/train', methods=["GET", "POST"])
 def train():
     if request.method == "POST":
-        os.system("rm -rf log/*")
+        #os.system("rm -rf log/*")
         data = request.get_data()
         import json
         data = json.loads(data)
