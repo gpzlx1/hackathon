@@ -46,8 +46,8 @@ def train():
         status, cnn_or_err = buildnn.cnn(data)
         if(status):
             cnn = cnn_or_err
-            trainApp = ta.Train(dataresource)
-            trainApp.train(cnn)
+            #trainApp = ta.Train(dataresource)
+            #trainApp.train(cnn)
             return jsonify({"status":True, "index":-1, "msg":"finish training"})
         else:
             err = cnn_or_err
